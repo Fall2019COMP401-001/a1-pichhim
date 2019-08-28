@@ -14,15 +14,17 @@ public class A1Novice {
 			String f = scan.next();
 			String last = scan.next();
 			int totalItem = scan.nextInt();
-			double price = 0;
+			double price = 0.00;
+			String priceStr = "";
 			for (int a = totalItem; a > 0; a--) {
 				int amt = scan.nextInt();
 				@SuppressWarnings("unused")
 				String food = scan.next();
 				double cost = scan.nextDouble();
 				price += amt * cost;
+				priceStr = String.format("%.2f", price);
 			}
-			System.out.println(f.charAt(0) + ". " + last + ": " + price);
+			System.out.println(f.charAt(0) + ". " + last + ": " + priceStr);
 
 		}
 		scan.close();
