@@ -37,6 +37,11 @@ public class A1Jedi {
 			customerLastName[i] = scan.next();
 			int foodAmt = scan.nextInt();
 			
+			Boolean[] repeatFoods = new Boolean[items.length];
+			for (int p = 0; p < items.length; p++) {
+				repeatFoods[p] = true;
+			}
+			
 			// Scans through each food per customer, storing the amount of each specific fruit bought by each customer
 			// and the food name
 			for (int j = 0; j < foodAmt; j++) {
@@ -48,8 +53,11 @@ public class A1Jedi {
 				// by the customer to the total amount of that fruit bought by all customers.
 				for (int k = 0; k < items.length; k++) {
 					if (items[k].equals(tempFood)) {
-						customersBought[k] += 1; 
 						totalOfItemBought[k] += amtOfFruit;
+						if (repeatFoods[k]) {
+							customersBought[k] += 1;
+							repeatFoods[k] = false;
+						}
 					}
 				}
 			}
